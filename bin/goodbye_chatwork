@@ -75,5 +75,5 @@ if opts['x'] || opts['e']
     end
   end
 else
-  puts list.map { |i| i.join(' ') }
+  puts list.map { |i| i.join(',') if i!= nil }
 end

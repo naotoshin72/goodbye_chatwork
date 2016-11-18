@@ -162,15 +162,9 @@ module GoodbyeChatwork
         name = i[1]['n']
         member_ids = i[1]['m'].keys
         c = i[1]['c']
-        if !name && member_ids.size == 1 && member_ids.first == @myid
-          [i[0], 'mychat', c]
-        elsif name
-          [i[0], name, c]
-        elsif member_ids.size == 2 && member_ids.include?(@myid)
+        if member_ids.size == 2 && member_ids.include?(@myid)
           ac = self.account(member_ids.find { |i| i != @myid }) || {}
-          [i[0], ac['name'], c]
-        else
-          [i[0], '...', c]
+          [i[0], ac['name']]
         end
       end
     end
